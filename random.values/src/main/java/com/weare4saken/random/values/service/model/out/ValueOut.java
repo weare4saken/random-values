@@ -7,8 +7,11 @@ import java.util.UUID;
 
 @Builder
 @Getter
-public class CategoryOut {
+public class ValueOut {
+
     private UUID id;
     private String name;
     private String description;
+    private UUID categoryId;
+
 }

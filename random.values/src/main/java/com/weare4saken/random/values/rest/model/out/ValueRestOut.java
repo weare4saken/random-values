@@ -1,9 +1,15 @@
-package com.weare4saken.random.values.rest.model.in;
+package com.weare4saken.random.values.rest.model.out;
 
-import lombok.Data;
+import lombok.Builder;
 
-@Data
-public class ValueRestIn {
+import java.util.UUID;
+
+@Builder
+public class ValueRestOut {
+
+    private UUID id;
     private String name;
     private String description;
+    private UUID categoryId;
+
 }

@@ -1,19 +1,31 @@
-package com.weare4saken.random.values.domain;
+package com.weare4saken.random.values.domain.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import lombok.Data;
+import jakarta.persistence.*;
+import lombok.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity(name = "category")
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@ToString
+@EqualsAndHashCode
 public class CategoryEntity {
+
     @Id
     @Column(name = "id")
     private UUID id;
     @Column(name = "name")
     private String name;
+    @Column(name = "description")
+    private String description;
+    @OneToMany(mappedBy = "category")
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private List<ValueEntity> values;
 
 }
